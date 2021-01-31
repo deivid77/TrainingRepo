@@ -1,0 +1,27 @@
+﻿@model Entities.Product
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CUD</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <div>ID: @Html.TextBoxFor(p => p.ProductID)</div>
+        <div>Nombre: @Html.TextBoxFor(p => p.ProductName)</div>
+        <div>Precio: @Html.TextBoxFor(p => p.UnitPrice)</div>
+        <div>Existencia: @Html.TextBoxFor(p => p.UnitsInStock)</div>
+        <div>Categoria: @Html.TextBoxFor(p => p.CategoryID)</div>
+        <div><input type="submit" name="CreateBtn" value="Crear" /></div>
+        <div><input type="submit" name="UpdateBtn" value="Actualizar" /></div>
+        <div><input type="submit" name="DeleteBtn" value="Eliminar" /></div>
+    }
+</body>
+</html>

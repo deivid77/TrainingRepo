@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.Creacionales", "01.Creacionales", "{56372E9B-8ED4-4D7B-A160-6BBC553B40B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactoryMethod", "FactoryMethod\FactoryMethod.csproj", "{CD0F2235-DF91-4A3D-920A-0A7C0C982FC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractFactory", "AbstractFactory\AbstractFactory.csproj", "{042A60A0-BDD7-4EA0-9E3B-0921C3EA7DD2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD0F2235-DF91-4A3D-920A-0A7C0C982FC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD0F2235-DF91-4A3D-920A-0A7C0C982FC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD0F2235-DF91-4A3D-920A-0A7C0C982FC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD0F2235-DF91-4A3D-920A-0A7C0C982FC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{042A60A0-BDD7-4EA0-9E3B-0921C3EA7DD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{042A60A0-BDD7-4EA0-9E3B-0921C3EA7DD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{042A60A0-BDD7-4EA0-9E3B-0921C3EA7DD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{042A60A0-BDD7-4EA0-9E3B-0921C3EA7DD2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CD0F2235-DF91-4A3D-920A-0A7C0C982FC4} = {56372E9B-8ED4-4D7B-A160-6BBC553B40B2}
+		{042A60A0-BDD7-4EA0-9E3B-0921C3EA7DD2} = {56372E9B-8ED4-4D7B-A160-6BBC553B40B2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1A48FA45-AAEF-4695-9CAF-62CA22C821DE}
+	EndGlobalSection
+EndGlobal

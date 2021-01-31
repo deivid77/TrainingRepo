@@ -1,0 +1,28 @@
+﻿@model Entities.Product
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        ID: @Model.ProductID
+    </div>
+    <div>
+        Nombre: @Model.ProductName
+    </div>
+    <div>
+        Precio: @Model.UnitPrice
+    </div>
+    <div>
+        Existencia: @Model.UnitsInStock
+    </div>
+</body>
+</html>

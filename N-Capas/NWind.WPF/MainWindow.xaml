@@ -1,0 +1,50 @@
+﻿<Window x:Class="NWind.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:NWind.ViewModel;assembly=NWind.ViewModel"
+        xmlns:local="clr-namespace:NWind.WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <Window.DataContext>
+        <vm:Product/>
+    </Window.DataContext>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Grid.Column="0">
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="10">Categoria:</Label>
+                <TextBox Width="50" Margin="10" Text="{Binding CategoryID}"/>
+                <Button Content="Buscar" Width="80" Margin="10" Command="{Binding SearchProductsCommand}"/>
+                <Button Content="Ver Detalle" Margin="10" Width="100" Command="{Binding SearchProductByIDCommand}"/>
+            </StackPanel>
+            <DataGrid ItemsSource="{Binding Path=Products}" SelectedItem="{Binding ProductSelected}">
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Margin="30,0,0,0" Grid.Column="1">
+            <Label HorizontalAlignment="Center">Detalle del Producto</Label>
+            <StackPanel Orientation="Horizontal">
+                <Label>ID:</Label>
+                <Label Content="{Binding ProductID}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Nombre:</Label>
+                <Label Content="{Binding ProductName}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"/>
+            <Label>Stock:</Label>
+            <Label Content="{Binding UnitsInStock}"/>
+            <StackPanel Orientation="Horizontal">
+                <Label>Precio:</Label>
+                <Label Content="{Binding UnitPrice}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

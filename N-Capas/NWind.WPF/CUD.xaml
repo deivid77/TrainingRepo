@@ -1,0 +1,50 @@
+﻿<Window x:Class="NWind.WPF.CUD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NWind.WPF"
+        mc:Ignorable="d"
+        xmlns:vm="clr-namespace:NWind.ViewModel;assembly=NWind.ViewModel"
+        Title="CUD" Height="450" Width="800">
+    
+    <Window.DataContext>
+        <vm:CUD/>
+    </Window.DataContext>
+    
+    <StackPanel Margin="10" >
+        <Label HorizontalAlignment="Center">Producto nuevo</Label>
+        <StackPanel Orientation="Horizontal">
+            <Label>ID:</Label>
+            <TextBox Text="{Binding ProductID, Mode=TwoWay}"
+ Width="100" IsReadOnly="True"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label>Nombre:</Label>
+            <TextBox Text="{Binding ProductName, Mode=TwoWay}"
+ Width="100"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label>ID de Categoria:</Label>
+            <TextBox Text="{Binding CategoryID, Mode=TwoWay}"
+ Width="100"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label>Stock:</Label>
+            <TextBox Text="{Binding UnitsInStock, Mode=TwoWay}"
+ Width="100"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label>Precio:</Label>
+            <TextBox Text="{Binding UnitPrice, Mode=TwoWay}"
+ Width="100"/>
+        </StackPanel>
+        <Button Content="Crear Producto" Width="100"
+ Command="{Binding CreateProductCommand}"/>
+        <Button Content="Actualizar Producto" Width="100" Margin="10"
+ Command="{Binding UpdateProductCommand}"/>
+        <Button Content="Eliminar Producto" Width="100" Margin="10"
+ Command="{Binding DeleteProductCommand}"/>
+    </StackPanel>
+
+</Window>
