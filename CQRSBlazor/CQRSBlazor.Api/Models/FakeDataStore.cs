@@ -26,6 +26,8 @@ namespace CQRSBlazor.Api.Models
             return _values;
         }
 
+        //In real-world use cases, these would be implemented differently, likely taking external dependencies 
+        //and doing something meaningful, but here we are just trying to demonstrate the behavior of Notifications.
         public void EventOccured(string value, string evt)
         {
             var indexOfValue = _values.FindIndex(val => val.StartsWith(value));
