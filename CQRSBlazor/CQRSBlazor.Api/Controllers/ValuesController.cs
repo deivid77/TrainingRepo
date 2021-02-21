@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CQRSBlazor.Api.Controllers
 {
@@ -7,11 +9,19 @@ namespace CQRSBlazor.Api.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+
+        private readonly IMediator _mediator;
+
+        public ValuesController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
         // GET: api/<ValuesController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return await _mediator.Send(new Queries.GetValuesQuery.Query());
         }
 
         // GET api/<ValuesController>/5
@@ -23,8 +33,14 @@ namespace CQRSBlazor.Api.Controllers
 
         // POST api/<ValuesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task Post([FromBody] string value)
         {
+            await _mediator.Send(new Commands.AddValueCommand.Command
+            {
+                Value = value
+            });
+
+            await _mediator.Publish(new Notifications.ValueAddedNotification { Value = value });
         }
 
         // PUT api/<ValuesController>/5

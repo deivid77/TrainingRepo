@@ -16,7 +16,11 @@ This is my personal space to play and learn with the code.
 * <bold>CarRental</bold>
   - Pluralsight "Building End-to-End Multi-Client Service Oriented Applications"<br>
   https://app.pluralsight.com/library/courses/building-multi-client-end-to-end-service-oriented-applications/table-of-contents
-  
+
+* <bold>CQRSBlazor</bold>
+  - CodeMaze web article<br>
+  https://code-maze.com/cqrs-mediatr-in-aspnet-core/#theory
+
 * <bold>DesignPatterns</bold>
   - Refactoring Guru "Dive Into DESIGN PATTERNS" book<br>
   https://refactoring.guru/es/design-patterns

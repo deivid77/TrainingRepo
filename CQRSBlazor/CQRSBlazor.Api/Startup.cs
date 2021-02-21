@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MediatR;
+using CQRSBlazor.Api.Models;
+using CQRSBlazor.Api.Behaviors;
 
 namespace CQRSBlazor.Api
 {
@@ -22,6 +24,8 @@ namespace CQRSBlazor.Api
 
             services.AddControllers();
             services.AddMediatR(typeof(Startup));
+            services.AddSingleton<FakeDataStore>();
+            services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
