@@ -118,7 +118,8 @@ namespace NWindProxyService
             bool Result = false;
             Task.Run(async () => Result = await DeleteProductAsync(ID)).Wait();
             return Result;
-        }
+        }
+
         public async Task<List<Product>> FilterProductsByCategoryIDAsync(int ID)
         {
             return await SendGet<List<Product>>($"/api/nwind/FilterProductsByCategoryID/{ID}");

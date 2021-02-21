@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
-using Entities;
+using Entities;
+
 
 namespace BLL
 {
@@ -95,7 +96,8 @@ namespace BLL
                 // para indicar que el producto no existe
             }
             return Result;
-        }
+        }
+
         public List<Product> FilterByCategoryID(int categoryID)
         {
             List<Product> Result = null;
