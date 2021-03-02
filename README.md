@@ -21,6 +21,10 @@ This is my personal space to play and learn with the code.
   - CodeMaze web article<br>
   https://code-maze.com/cqrs-mediatr-in-aspnet-core/#theory
 
+* <bold>CQRSWebApi</bold>
+  - medium.com web article. Improved: .NET 5 + Clean Arquitecture<br>
+  https://medium.com/@ducmeit/net-core-using-cqrs-pattern-with-mediatr-part-2-cc55763e83f0
+
 * <bold>DesignPatterns</bold>
   - Refactoring Guru "Dive Into DESIGN PATTERNS" book<br>
   https://refactoring.guru/es/design-patterns
@@ -28,3 +32,5 @@ This is my personal space to play and learn with the code.
 * <bold>N-Capas</bold>
   - TI Capacitación "Introducción al desarrollo de aplicaciones N-Capas"<br>
   https://ticapacitacion.com/aula/Contents/ncapas
+
+
