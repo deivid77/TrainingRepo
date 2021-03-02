@@ -5,6 +5,7 @@ using Customer.Data.IRepositories;
 using Customer.Domain.Commands;
 using Customer.Domain.Dtos;
 using Customer.Service.Dxos;
+using Customer.Service.Exceptions;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
@@ -35,8 +36,9 @@ namespace Customer.Service.Services
             {
                 string msg = $"This email {nameof(request.Email)} is already existed!";
                 _logger.LogError(msg);
-                             
-                throw new ArgumentException(msg);
+
+                //throw new ArgumentException(msg);
+                throw new BadRequestException(msg);
             }
 
             var customer = new Domain.Models.Customer(request.Name, request.Email, request.Address, request.Age, request.PhoneNumber);
@@ -45,7 +47,7 @@ namespace Customer.Service.Services
 
             if (await _customerRepository.SaveChangesAsync() == 0)
             {
-                throw new ApplicationException();
+                throw new Exceptions.ApplicationException();
             }
 
             await _mediator.Publish(new Domain.Events.CustomerCreatedEvent(customer.Id), cancellationToken);

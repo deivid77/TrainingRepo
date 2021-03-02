@@ -12,6 +12,10 @@ using Customer.Service.Dxos;
 using System.Reflection;
 using MediatR;
 using Customer.Service.Services;
+using System.Net;
+using Microsoft.AspNetCore.Diagnostics;
+using System.Text;
+using Microsoft.AspNetCore.Http;
 
 namespace Customer.API
 {
@@ -34,11 +38,13 @@ namespace Customer.API
             services.AddScoped<ICustomerDxos, CustomerDxos>();
 
             services.AddRouting(options => options.LowercaseUrls = true);
-            services.AddLogging();           
+            services.AddLogging();
             services.AddControllers();
+
 
             //services.AddMediatR(typeof(Startup)); -> Sintaxis for the same assembly
             services.AddMediatR(typeof(CreateCustomerHandler).GetTypeInfo().Assembly); // -> Different assembly
+                                                                                       //services.AddMediatorHandlers(typeof(CreateCustomerCommandExceptionHandler).GetTypeInfo().Assembly);
 
             services.AddSwaggerGen(c =>
             {
@@ -55,6 +61,31 @@ namespace Customer.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Customer.API v1"));
             }
+
+            app.UseExceptionHandler(builder =>
+               builder.Run(async context =>
+               {
+                   context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                   var ex = context.Features.Get<IExceptionHandlerFeature>();
+                   if (ex != null)
+                   {
+                       StringBuilder message = new StringBuilder();
+                       if (env.IsDevelopment())
+                       {
+                           message.AppendLine(ex.Error.Message);
+                           if (env.IsDevelopment())
+                           {
+                               message.AppendLine(ex.Error.StackTrace);
+                           }
+                       }
+                       else
+                       {
+                           message.AppendLine("An error has occurred");
+                       }
+
+                       await context.Response.WriteAsync(message.ToString()).ConfigureAwait(false);
+                   }
+               }));
 
             app.UseHttpsRedirection();
             app.UseRouting();

@@ -30,7 +30,7 @@ namespace Customer.API.Controllers
 
         protected async Task<TResult> CommandAsync<TResult>(IRequest<TResult> command)
         {
-            return await _mediator.Send(command);
+            return await _mediator.Send(command);            
         }
 
     }
