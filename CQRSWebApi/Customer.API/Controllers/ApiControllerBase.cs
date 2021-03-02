@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Customer.API.Controllers
 {
     [ApiController]
+    [ApplicationExceptionFilter]
     [Route("api/[controller]")]
     [Produces("application/json")]
     public class ApiControllerBase : ControllerBase

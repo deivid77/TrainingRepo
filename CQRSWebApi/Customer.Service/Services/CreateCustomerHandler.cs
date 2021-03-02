@@ -29,7 +29,6 @@ namespace Customer.Service.Services
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-
         public async Task<CustomerDto> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
         {
             if (await _customerRepository.EmailExistAsync(request.Email))
@@ -47,7 +46,7 @@ namespace Customer.Service.Services
 
             if (await _customerRepository.SaveChangesAsync() == 0)
             {
-                throw new Exceptions.ApplicationException();
+                throw new Exceptions.ApplicationException("Couldn't save data");
             }
 
             await _mediator.Publish(new Domain.Events.CustomerCreatedEvent(customer.Id), cancellationToken);

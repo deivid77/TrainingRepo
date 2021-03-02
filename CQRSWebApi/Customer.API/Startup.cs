@@ -41,7 +41,6 @@ namespace Customer.API
             services.AddLogging();
             services.AddControllers();
 
-
             //services.AddMediatR(typeof(Startup)); -> Sintaxis for the same assembly
             services.AddMediatR(typeof(CreateCustomerHandler).GetTypeInfo().Assembly); // -> Different assembly
                                                                                        //services.AddMediatorHandlers(typeof(CreateCustomerCommandExceptionHandler).GetTypeInfo().Assembly);
@@ -73,10 +72,7 @@ namespace Customer.API
                        if (env.IsDevelopment())
                        {
                            message.AppendLine(ex.Error.Message);
-                           if (env.IsDevelopment())
-                           {
-                               message.AppendLine(ex.Error.StackTrace);
-                           }
+                           message.AppendLine(ex.Error.StackTrace);
                        }
                        else
                        {
