@@ -68,16 +68,11 @@ namespace Customer.API
                    var ex = context.Features.Get<IExceptionHandlerFeature>();
                    if (ex != null)
                    {
+                       //TODO: Return Internal Id, Status Code, Status Code Description, Error Description (Title)
                        StringBuilder message = new StringBuilder();
-                       if (env.IsDevelopment())
-                       {
-                           message.AppendLine(ex.Error.Message);
-                           message.AppendLine(ex.Error.StackTrace);
-                       }
-                       else
-                       {
-                           message.AppendLine("An error has occurred");
-                       }
+                       message.AppendLine(ex.Error.Message);
+
+                       if (env.IsDevelopment()) message.AppendLine(ex.Error.StackTrace);
 
                        await context.Response.WriteAsync(message.ToString()).ConfigureAwait(false);
                    }

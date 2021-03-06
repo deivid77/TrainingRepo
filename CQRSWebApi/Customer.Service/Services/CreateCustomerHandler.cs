@@ -35,8 +35,7 @@ namespace Customer.Service.Services
             {
                 string msg = $"This email {nameof(request.Email)} is already existed!";
                 _logger.LogError(msg);
-
-                //throw new ArgumentException(msg);
+                              
                 throw new BadRequestException(msg);
             }
 
