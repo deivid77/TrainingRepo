@@ -1,0 +1,79 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Contracts\Identity\**" />
+    <Compile Remove="Contracts\Infrastructure\**" />
+    <Compile Remove="Exceptions\**" />
+    <Compile Remove="Features\Categories\**" />
+    <Compile Remove="Features\Events\Commands\**" />
+    <Compile Remove="Features\Events\Queries\GetEventDetail\**" />
+    <Compile Remove="Features\Orders\**" />
+    <Compile Remove="Models\**" />
+    <Compile Remove="Responses\**" />
+    <EmbeddedResource Remove="Contracts\Identity\**" />
+    <EmbeddedResource Remove="Contracts\Infrastructure\**" />
+    <EmbeddedResource Remove="Exceptions\**" />
+    <EmbeddedResource Remove="Features\Categories\**" />
+    <EmbeddedResource Remove="Features\Events\Commands\**" />
+    <EmbeddedResource Remove="Features\Events\Queries\GetEventDetail\**" />
+    <EmbeddedResource Remove="Features\Orders\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <EmbeddedResource Remove="Responses\**" />
+    <None Remove="Contracts\Identity\**" />
+    <None Remove="Contracts\Infrastructure\**" />
+    <None Remove="Exceptions\**" />
+    <None Remove="Features\Categories\**" />
+    <None Remove="Features\Events\Commands\**" />
+    <None Remove="Features\Events\Queries\GetEventDetail\**" />
+    <None Remove="Features\Orders\**" />
+    <None Remove="Models\**" />
+    <None Remove="Responses\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Exceptions\BadRequestException.cs" />
+    <Compile Include="Exceptions\NotFoundException.cs" />
+    <Compile Include="Exceptions\ValidationException.cs" />
+    <Compile Include="Features\Categories\Commands\CreateCateogry\CreateCategoryCommand.cs" />
+    <Compile Include="Features\Categories\Commands\CreateCateogry\CreateCategoryCommandHandler.cs" />
+    <Compile Include="Features\Categories\Commands\CreateCateogry\CreateCategoryCommandResponse.cs" />
+    <Compile Include="Features\Categories\Commands\CreateCateogry\CreateCategoryCommandValidator.cs" />
+    <Compile Include="Features\Categories\Commands\CreateCateogry\CreateCategoryDto.cs" />
+    <Compile Include="Features\Categories\Queries\GetCategoriesListWithEvents\CategoryEventDto.cs" />
+    <Compile Include="Features\Categories\Queries\GetCategoriesListWithEvents\CategoryEventListVm.cs" />
+    <Compile Include="Features\Categories\Queries\GetCategoriesListWithEvents\GetCategoriesListWithEventsQuery.cs" />
+    <Compile Include="Features\Categories\Queries\GetCategoriesListWithEvents\GetCategoriesListWithEventsQueryHandler.cs" />
+    <Compile Include="Features\Categories\Queries\GetCategoriesList\CategoryListVm.cs" />
+    <Compile Include="Features\Categories\Queries\GetCategoriesList\GetCategoriesListQuery.cs" />
+    <Compile Include="Features\Categories\Queries\GetCategoriesList\GetCategoriesListQueryHandler.cs" />
+    <Compile Include="Features\Events\Commands\CreateEvent\CreateEventCommand.cs" />
+    <Compile Include="Features\Events\Commands\CreateEvent\CreateEventCommandHandler.cs" />
+    <Compile Include="Features\Events\Commands\CreateEvent\CreateEventCommandValidator.cs" />
+    <Compile Include="Features\Events\Commands\DeleteEvent\DeleteEventCommand.cs" />
+    <Compile Include="Features\Events\Commands\DeleteEvent\DeleteEventCommandHandler.cs" />
+    <Compile Include="Features\Events\Commands\UpdateEvent\UpdateEventCommand.cs" />
+    <Compile Include="Features\Events\Commands\UpdateEvent\UpdateEventCommandHandler.cs" />
+    <Compile Include="Features\Events\Queries\GetEventDetail\CategoryDto.cs" />
+    <Compile Include="Features\Events\Queries\GetEventDetail\EventDetailVm.cs" />
+    <Compile Include="Features\Events\Queries\GetEventDetail\GetEventDetailQuery.cs" />
+    <Compile Include="Features\Events\Queries\GetEventDetail\GetEventDetailQueryHandler.cs" />
+    <Compile Include="Responses\BaseResponse.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="FluentValidation" Version="9.5.2" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="9.5.2" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GloboTicket.TicketManagement.Domain\GloboTicket.TicketManagement.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
