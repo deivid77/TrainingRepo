@@ -35,6 +35,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="Contracts\Infrastructure\ICsvExporter.cs" />
+    <Compile Include="Contracts\Infrastructure\IEmailService.cs" />
     <Compile Include="Exceptions\BadRequestException.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="Exceptions\ValidationException.cs" />
@@ -61,6 +63,8 @@
     <Compile Include="Features\Events\Queries\GetEventDetail\EventDetailVm.cs" />
     <Compile Include="Features\Events\Queries\GetEventDetail\GetEventDetailQuery.cs" />
     <Compile Include="Features\Events\Queries\GetEventDetail\GetEventDetailQueryHandler.cs" />
+    <Compile Include="Models\Mail\Email.cs" />
+    <Compile Include="Models\Mail\EmailSettings.cs" />
     <Compile Include="Responses\BaseResponse.cs" />
   </ItemGroup>
 
