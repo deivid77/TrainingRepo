@@ -17,7 +17,7 @@ namespace GloboTicket.TicketManagement.Persistence.Repositories
         public async Task<List<Category>> GetCategoriesWithEvents(bool includePassedEvents)
         {
             var allCategories = await _dbContext.Categories.Include(x => x.Events).ToListAsync();
-            if(!includePassedEvents)
+            if (!includePassedEvents)
             {
                 allCategories.ForEach(p => p.Events.ToList().RemoveAll(c => c.Date < DateTime.Today));
             }

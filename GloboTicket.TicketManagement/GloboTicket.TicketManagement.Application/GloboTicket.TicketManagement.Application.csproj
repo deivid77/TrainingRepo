@@ -80,4 +80,8 @@
     <ProjectReference Include="..\GloboTicket.TicketManagement.Domain\GloboTicket.TicketManagement.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Contracts\Identity\" />
+  </ItemGroup>
+
 </Project>
