@@ -63,6 +63,10 @@
     <Compile Include="Features\Events\Queries\GetEventDetail\EventDetailVm.cs" />
     <Compile Include="Features\Events\Queries\GetEventDetail\GetEventDetailQuery.cs" />
     <Compile Include="Features\Events\Queries\GetEventDetail\GetEventDetailQueryHandler.cs" />
+    <Compile Include="Features\Orders\GetOrdersForMonth\GetOrdersForMonthQuery.cs" />
+    <Compile Include="Features\Orders\GetOrdersForMonth\GetOrdersForMonthQueryHandler.cs" />
+    <Compile Include="Features\Orders\GetOrdersForMonth\OrdersForMonthDto.cs" />
+    <Compile Include="Features\Orders\GetOrdersForMonth\PagedOrdersForMonthVm.cs" />
     <Compile Include="Models\Mail\Email.cs" />
     <Compile Include="Models\Mail\EmailSettings.cs" />
     <Compile Include="Responses\BaseResponse.cs" />
