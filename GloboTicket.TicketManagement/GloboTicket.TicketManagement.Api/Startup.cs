@@ -1,4 +1,4 @@
-//using GloboTicket.TicketManagement.Api.Middleware;
+using GloboTicket.TicketManagement.Api.Middleware;
 using GloboTicket.TicketManagement.Api.Utility;
 using GloboTicket.TicketManagement.Application;
 using GloboTicket.TicketManagement.Infrastructure;
@@ -73,7 +73,7 @@ namespace GloboTicket.TicketManagement.Api
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "GloboTicket Ticket Management API");
             });
 
-            //app.UseCustomExceptionHandler();
+            app.UseCustomExceptionHandler();
 
             app.UseCors("Open");
 
