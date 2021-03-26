@@ -35,6 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="Contracts\Identity\IAuthenticationService.cs" />
     <Compile Include="Contracts\Infrastructure\ICsvExporter.cs" />
     <Compile Include="Contracts\Infrastructure\IEmailService.cs" />
     <Compile Include="Exceptions\BadRequestException.cs" />
@@ -67,6 +68,11 @@
     <Compile Include="Features\Orders\GetOrdersForMonth\GetOrdersForMonthQueryHandler.cs" />
     <Compile Include="Features\Orders\GetOrdersForMonth\OrdersForMonthDto.cs" />
     <Compile Include="Features\Orders\GetOrdersForMonth\PagedOrdersForMonthVm.cs" />
+    <Compile Include="Models\Authentication\AuthenticationRequest.cs" />
+    <Compile Include="Models\Authentication\AuthenticationResponse.cs" />
+    <Compile Include="Models\Authentication\JwtSettings.cs" />
+    <Compile Include="Models\Authentication\RegistrationRequest.cs" />
+    <Compile Include="Models\Authentication\RegistrationResponse.cs" />
     <Compile Include="Models\Mail\Email.cs" />
     <Compile Include="Models\Mail\EmailSettings.cs" />
     <Compile Include="Responses\BaseResponse.cs" />
@@ -84,10 +90,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GloboTicket.TicketManagement.Domain\GloboTicket.TicketManagement.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Contracts\Identity\" />
   </ItemGroup>
 
 </Project>
