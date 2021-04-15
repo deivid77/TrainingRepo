@@ -14,8 +14,8 @@ namespace GloboTicket.TicketManagement.App.Pages
 
         public string Message { get; set; }
 
-        [Inject]
-        private IAuthenticationService AuthenticationService { get; set; }
+        //[Inject]
+        //private IAuthenticationService AuthenticationService { get; set; }
 
         public Register()
         {
@@ -26,15 +26,15 @@ namespace GloboTicket.TicketManagement.App.Pages
             RegisterViewModel = new RegisterViewModel();
         }
 
-        protected async void HandleValidSubmit()
+        protected void HandleValidSubmit()
         {
-            var result = await AuthenticationService.Register(RegisterViewModel.FirstName, RegisterViewModel.LastName, RegisterViewModel.UserName, RegisterViewModel.Email, RegisterViewModel.Password);
+            //var result = await AuthenticationService.Register(RegisterViewModel.FirstName, RegisterViewModel.LastName, RegisterViewModel.UserName, RegisterViewModel.Email, RegisterViewModel.Password);
 
-            if (result)
-            {
-                NavigationManager.NavigateTo("home");
-            }
-            Message = "Something went wrong, please try again.";
+            //if (result)
+            //{
+            NavigationManager.NavigateTo("home");
+            //}
+            //Message = "Something went wrong, please try again.";
         }
     }
 }

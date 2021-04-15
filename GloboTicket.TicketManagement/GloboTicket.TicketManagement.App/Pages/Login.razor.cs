@@ -1,5 +1,4 @@
-﻿using GloboTicket.TicketManagement.App.Contracts;
-using GloboTicket.TicketManagement.App.ViewModels;
+﻿using GloboTicket.TicketManagement.App.ViewModels;
 using Microsoft.AspNetCore.Components;
 
 namespace GloboTicket.TicketManagement.App.Pages
@@ -12,8 +11,8 @@ namespace GloboTicket.TicketManagement.App.Pages
         public NavigationManager NavigationManager { get; set; }
         public string Message { get; set; }
 
-        [Inject]
-        private IAuthenticationService AuthenticationService { get; set; }
+        //[Inject]
+        //private IAuthenticationService AuthenticationService { get; set; }
 
         public Login()
         {
@@ -25,13 +24,13 @@ namespace GloboTicket.TicketManagement.App.Pages
             LoginViewModel = new LoginViewModel();
         }
 
-        protected async void HandleValidSubmit()
+        protected void HandleValidSubmit()
         {
-            if (await AuthenticationService.Authenticate(LoginViewModel.Email, LoginViewModel.Password))
-            {
+            //if (await AuthenticationService.Authenticate(LoginViewModel.Email, LoginViewModel.Password))
+            //{
                 NavigationManager.NavigateTo("home");
-            }
-            Message = "Username/password combination unknown";
+            //}
+            //Message = "Username/password combination unknown";
         }
     }
 }

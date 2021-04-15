@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Blazored.LocalStorage;
 using GloboTicket.TicketManagement.App.Contracts;
 using GloboTicket.TicketManagement.App.Services.Base;
 using GloboTicket.TicketManagement.App.ViewModels;
@@ -15,7 +14,7 @@ namespace GloboTicket.TicketManagement.App.Services
         
         private readonly IMapper _mapper;
 
-        public EventDataService(IClient client, IMapper mapper, ILocalStorageService localStorage) : base(client, localStorage)
+        public EventDataService(IClient client, IMapper mapper) : base(client)
         {
             _mapper = mapper;
         }

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Blazored.LocalStorage;
 using GloboTicket.TicketManagement.App.Contracts;
 using GloboTicket.TicketManagement.App.Services.Base;
 using GloboTicket.TicketManagement.App.ViewModels;
@@ -14,15 +13,13 @@ namespace GloboTicket.TicketManagement.App.Services
     {
         private readonly IMapper _mapper;
 
-        public CategoryDataService(IClient client, IMapper mapper, ILocalStorageService localStorage): base(client, localStorage)
+        public CategoryDataService(IClient client, IMapper mapper): base(client)
         {
             _mapper = mapper;
         }
 
         public async Task<List<CategoryViewModel>> GetAllCategories()
         {
-            await AddBearerToken();
-
             var allCategories = await _client.GetAllCategoriesAsync();
             var mappedCategories = _mapper.Map<ICollection<CategoryViewModel>>(allCategories);
             return mappedCategories.ToList();
@@ -31,8 +28,6 @@ namespace GloboTicket.TicketManagement.App.Services
 
         public async Task<List<CategoryEventsViewModel>> GetAllCategoriesWithEvents(bool includeHistory)
         {
-            await AddBearerToken();
-
             var allCategories = await _client.GetCategoriesWithEventsAsync(includeHistory);
             var mappedCategories = _mapper.Map<ICollection<CategoryEventsViewModel>>(allCategories);
             return mappedCategories.ToList();

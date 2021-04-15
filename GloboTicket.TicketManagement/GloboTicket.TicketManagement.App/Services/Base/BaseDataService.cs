@@ -1,20 +1,12 @@
-﻿using Blazored.LocalStorage;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-
-namespace GloboTicket.TicketManagement.App.Services.Base
+﻿namespace GloboTicket.TicketManagement.App.Services.Base
 {
     public class BaseDataService
-    {
-        protected readonly ILocalStorageService _localStorage;
-        
+    {        
         protected IClient _client;
 
-        public BaseDataService(IClient client, ILocalStorageService localStorage)
+        public BaseDataService(IClient client)
         {
             _client = client;
-            _localStorage = localStorage;
-
         }
 
         protected ApiResponse<Guid> ConvertApiExceptions<Guid>(ApiException ex)
@@ -31,12 +23,6 @@ namespace GloboTicket.TicketManagement.App.Services.Base
             {
                 return new ApiResponse<Guid>() { Message = "Something went wrong, please try again.", Success = false };
             }
-        }
-
-        protected async Task AddBearerToken()
-        {
-            if (await _localStorage.ContainKeyAsync("token"))
-                _client.HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await _localStorage.GetItemAsync<string>("token"));
-        }
+        }           
     }
 }
